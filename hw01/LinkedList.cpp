@@ -58,6 +58,27 @@ void insert(LinkedList& v, int amount) {
     cout << "push_back took: " << double(end - start) / CLOCKS_PER_SEC << " seconds" << endl;
 }
 
+/*
+// 插入每次 2^13 筆資料，重複 128 次
+void insert(LinkedList& v) {
+    const int chunk = pow(2, 13);  // 每次插入 2^13 筆資料
+    const int total_batches = 128; // 總共進行 128 次插入
+    clock_t start, end;
+
+    for (int i = 0; i < total_batches; i++) {
+        start = clock();  // 記錄插入開始時間
+        for (int j = 0; j < chunk; ++j) {
+            v.push_back(rand() % 10);  // 使用 push_back 插入隨機數據
+        }
+        end = clock();  // 記錄插入結束時間
+        // 記錄每次插入所需的時間
+        double duration = double(end - start) / CLOCKS_PER_SEC;
+        cout << "Batch " << i + 1 << " (Inserted " << (i + 1) * chunk 
+             << " elements) took: " << duration << " seconds" << endl;
+    }
+}
+*/
+
 void addUp(LinkedList& v) {
     clock_t start = clock();
     long long total = v.addUp();
